@@ -19,7 +19,7 @@ class sparepartController extends Controller
     public function index()
     {
         // return view('layout_spms.index');
-        $response = GetAPI("http://127.0.0.1:8000/part",[]);
+        $response = GetAPI("http://34.44.120.148/public/part",[]);
         dd($response);
         
         // Check if the response is successful
