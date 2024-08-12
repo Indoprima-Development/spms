@@ -9,6 +9,6 @@ class spms_models extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    protected $table='SparepartPlant5';
+    protected $table='sparepart';
     use HasFactory;
 }

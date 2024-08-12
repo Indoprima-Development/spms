@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\spms_models;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class partController extends Controller
 {
@@ -15,7 +16,18 @@ class partController extends Controller
     public function index()
     {
         //
-        return spms_models::all();
+        $response = Http::get('http://35.224.199.133:5000/api/spms');
+        
+        if ($response->successful()) {
+            // Get the JSON response as an array
+            $data = $response->json();
+            
+            // Return the data or process it as needed
+            return response()->json($data);
+        } else {
+            // Handle the error
+            return response()->json(['error' => 'Unable to fetch data'], $response->status());
+        }
     }
 
     /**

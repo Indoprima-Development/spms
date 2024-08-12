@@ -18,21 +18,9 @@ class sparepartController extends Controller
 
     public function index()
     {
-        // return view('layout_spms.index');
-        $response = GetAPI("http://34.44.120.148/public/part",[]);
-        dd($response);
-        
-        // Check if the response is successful
-        if ($response->successful()) {
-            // Get the data from the response
-            $data = $response->json();
-
-            // Pass the data to the view
-            return view('layout_spms.index', ['data' => $data]);
-        } else {
-            // Handle the error
+       
             return view('layout_spms.index');
-        }
+      
         
     }
 
